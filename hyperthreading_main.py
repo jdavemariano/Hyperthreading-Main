@@ -16,13 +16,12 @@ region_lookup = {
 
 instance_name = ""
 instance_id = ""
-target_env = ""
 target_ami = ""
 
 target_region = region_lookup[instance_name[:4]]
 
-ec2_data = get_instance_details(instance_name, instance_id, target_env, target_region)
+ec2_data = get_instance_details(instance_name, instance_id, target_region)
 print("EC2 DETAILS DONE")
 
-ebs_data = get_ebs_details(ec2_data, target_env, target_region)
+ebs_data = get_ebs_details(ec2_data, target_region)
 print("EBS DETAILS DONE")

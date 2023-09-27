@@ -3,12 +3,13 @@ import json
 import os
 from datetime import datetime   
 
+instance_name = os.environ['Instance Name']
+
 def write_json_s3(filename, folder):
     log_file = open(filename)
     log_json = log_file.read()
     log_json = log_json.replace("'",'"')
     log_json = json.loads(log_json)
-    instance_name = os.environ['Instance Name']
     
     target_bucket = "hyper-threading-automation-logs"
     target_date = str(datetime.today().strftime('%Y-%m-%d(%H:%M:%S)'))

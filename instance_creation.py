@@ -1,11 +1,9 @@
 import json
 import boto3
 
-def create_instance(ec2_data, target_ami, target_env, target_region):
-    api_keys_file = open("api_keys.json")
-    api_keys = json.load(api_keys_file)
+def create_instance(ec2_data, target_ami, target_region):
 
-    ec2_client = boto3.client('ec2', region_name = target_region, aws_access_key_id=api_keys[target_env]['key'], aws_secret_access_key=api_keys[target_env]['secret'])
+    ec2_client = boto3.client('ec2', region_name = target_region)
     
     network_interfaces = []
     for interface in ec2_data['NetworkInterfaces']:

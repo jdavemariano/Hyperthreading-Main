@@ -43,6 +43,9 @@ def get_instance_details(instance_name, instance_id, target_region):
 
 #	filename = f'{instance_name}_ec2'
 #	write_json_s3(filename, instance_details, "ec2-details-log/")
+
+	with open('ec2_details.json', 'w') as f:
+    	json.dump(instance_details, f)
 		
 	return(instance_details)
 

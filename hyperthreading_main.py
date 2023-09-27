@@ -33,7 +33,7 @@ print("EBS DETAILS DONE")
 #terminate_instance(instance_id, target_ami, target_env, target_region)
 
 #new_instance_id = create_instance(ec2_data, target_ami, target_env, target_region)
-print(new_instance_id)
+#print(new_instance_id)
 
 #tag_target(instance_name, new_instance_id, ec2_data, ebs_data, target_region, target_env)
 print("TAGS DONE")

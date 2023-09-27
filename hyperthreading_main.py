@@ -30,7 +30,7 @@ print("EC2 DETAILS DONE")
 ebs_data = get_ebs_details(ec2_data, target_region)
 print("EBS DETAILS DONE")
 
-#terminate_instance(instance_id, target_ami, target_region)
+terminate_instance(instance_id, target_ami, target_region)
 
 new_instance_id = create_instance(ec2_data, target_ami, target_region)
 print(new_instance_id)

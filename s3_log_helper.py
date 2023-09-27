@@ -6,7 +6,7 @@ from datetime import datetime
 instance_name = os.environ['Instance Name']
 
 def write_json_s3(filename, folder):
-    log_file = open(filename)
+    log_file = open(filename.split("-")[1])
     log_json = log_file.read()
     log_json = log_json.replace("'",'"')
     log_json = json.loads(log_json)

@@ -8,7 +8,7 @@ def write_json_s3(filename, folder):
     log_json = log_file.read()
     log_json = log_json.replace("'",'"')
     log_json = json.loads(log_json)
-    iname=os.environ['Instance Name']
+    instance_name = os.environ['Instance Name']
     
     target_bucket = "hyper-threading-automation-logs"
     target_date = str(datetime.today().strftime('%Y-%m-%d(%H:%M:%S)'))
@@ -19,5 +19,5 @@ def write_json_s3(filename, folder):
     s3object = s3_resource.Object(target_bucket, folder_filename)
     s3object.put(Body=(bytes(json.dumps(log_json, indent=4).encode('UTF-8'))))
 
-write_json_s3(f'{iname}-ec2_details.json', "ec2-details-log")
-write_json_s3(f'{iname}-ebs_details.json', "ebs-details-log")
+write_json_s3(f'{instance_name}-ec2_details.json', "ec2-details-log")
+write_json_s3(f'{instance_name}-ebs_details.json', "ebs-details-log")

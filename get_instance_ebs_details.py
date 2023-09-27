@@ -68,4 +68,7 @@ def get_ebs_details(ec2_data, target_region):
 #			filename = f'{instance_name}_ebs'
 #			write_json_s3(filename, vol_tags, "ebs-details-log/")
 
+	with open('ebs_details.json', 'w') as outfile:
+    	    json.dump(instance_details, outfile)
+
 	return(vol_tags)

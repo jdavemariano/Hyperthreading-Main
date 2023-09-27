@@ -18,7 +18,7 @@ def write_json_s3():
 
 	s3object.put(Body=(bytes(json.dumps(log_json, indent=4).encode('UTF-8'))))
 
-    log_file = open("ebs_details.json")
+        log_file = open("ebs_details.json")
 	log_json = log_file.read()
 	log_json = log_json.replace("'",'"')
 	log_json = json.loads(log_json)

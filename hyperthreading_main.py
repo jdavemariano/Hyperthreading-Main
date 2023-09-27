@@ -8,7 +8,7 @@ from get_instance_ebs_details import get_instance_details, get_ebs_details
 #from instance_termination import terminate_instance
 
 target_region = os.environ['Region']
-instance_ids = os.environ['Instance ID']
+instance_id = os.environ['Instance ID']
 instance_name = os.environ['Instance Name']
 target_ami = os.environ['AMI ID']
 

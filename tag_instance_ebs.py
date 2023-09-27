@@ -1,11 +1,9 @@
 import boto3
 import json
 
-def tag_target(instance_name, instance_id, ec2_data, ebs_data, target_region, target_env):
-	api_keys_file = open("api_keys.json")
-	api_keys = json.load(api_keys_file)
+def tag_target(instance_name, instance_id, ec2_data, ebs_data, target_region):
 
-	ec2_client = boto3.client('ec2', region_name = target_region, aws_access_key_id=api_keys[target_env]['key'], aws_secret_access_key=api_keys[target_env]['secret'])
+	ec2_client = boto3.client('ec2', region_name = target_region)
 	ec2_details = ec2_client.describe_instances(InstanceIds=[instance_id])
 	ec2_details = ec2_details["Reservations"][0]["Instances"][0]
 

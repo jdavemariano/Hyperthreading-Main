@@ -1,10 +1,16 @@
 import boto3
 import json
+import os
 
 from get_instance_ebs_details import get_instance_details, get_ebs_details
-from tag_instance_ebs import tag_target
-from instance_creation import create_instance
-from instance_termination import terminate_instance
+#from tag_instance_ebs import tag_target
+#from instance_creation import create_instance
+#from instance_termination import terminate_instance
+
+target_region = os.environ['Region']
+instance_ids = os.environ['Instance ID']
+instance_name = os.environ['Instance Name']
+target_ami = os.environ['AMI ID']
 
 region_lookup = {
 	"USEA":"us-east-1",
@@ -16,17 +22,12 @@ region_lookup = {
 	"APAU":"ap-southeast-2"
 }
 
-instance_name = "USEAPDAJ3DB23"
-instance_id = "i-074c96dc9af6a26a0"
-target_env = "dco"
-target_ami = "ami-01ec1239b9dabe1e4"
+target_region = region_lookup[target_region]
 
-target_region = region_lookup[instance_name[:4]]
-
-ec2_data = get_instance_details(instance_name, instance_id, target_env, target_region)
+ec2_data = get_instance_details(instance_name, instance_id, target_region)
 print("EC2 DETAILS DONE")
 
-ebs_data = get_ebs_details(ec2_data, target_env, target_region)
+ebs_data = get_ebs_details(ec2_data, target_region)
 print("EBS DETAILS DONE")
 
 #terminate_instance(instance_id, target_ami, target_env, target_region)

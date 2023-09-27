@@ -1,6 +1,7 @@
 import boto3
 import json
 import os
+import time
 
 from get_instance_ebs_details import get_instance_details, get_ebs_details
 from tag_instance_ebs import tag_target
@@ -35,5 +36,6 @@ terminate_instance(instance_id, target_ami, target_region)
 new_instance_id = create_instance(ec2_data, target_ami, target_region)
 print(new_instance_id)
 
+time.sleep(10)
 tag_target(instance_name, new_instance_id, ec2_data, ebs_data, target_region)
 print("TAGS DONE")

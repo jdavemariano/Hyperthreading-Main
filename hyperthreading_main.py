@@ -5,7 +5,7 @@ import os
 from get_instance_ebs_details import get_instance_details, get_ebs_details
 #from tag_instance_ebs import tag_target
 #from instance_creation import create_instance
-#from instance_termination import terminate_instance
+from instance_termination import terminate_instance
 
 target_region = os.environ['Region']
 instance_id = os.environ['Instance ID']

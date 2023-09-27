@@ -56,7 +56,7 @@ def create_instance(ec2_data, target_ami, target_region):
                 'ThreadsPerCore': 1,
         },
         HibernationOptions=ec2_data['HibernationOptions'],
-        PrivateDnsNameOptions=ec2_data['PrivateDnsNameOptions']
+        #PrivateDnsNameOptions=ec2_data['PrivateDnsNameOptions']
     )
 
     return(instances["Instances"][0]["InstanceId"])

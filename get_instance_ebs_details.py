@@ -45,7 +45,7 @@ def get_instance_details(instance_name, instance_id, target_region):
 #	write_json_s3(filename, instance_details, "ec2-details-log/")
 
 	with open('ec2_details.json', 'w') as outfile:
-    	json.dump(instance_details, outfile, default=json_util.default)
+    	json.dump(instance_details, outfile)
 		
 	return(instance_details)
 

@@ -3,9 +3,9 @@ import json
 import os
 
 from get_instance_ebs_details import get_instance_details, get_ebs_details
-#from tag_instance_ebs import tag_target
-#from instance_creation import create_instance
-#from instance_termination import terminate_instance
+from tag_instance_ebs import tag_target
+from instance_creation import create_instance
+from instance_termination import terminate_instance
 
 target_region = os.environ['Region']
 instance_id = os.environ['Instance ID']
@@ -30,10 +30,10 @@ print("EC2 DETAILS DONE")
 ebs_data = get_ebs_details(ec2_data, target_region)
 print("EBS DETAILS DONE")
 
-#terminate_instance(instance_id, target_ami, target_region)
+terminate_instance(instance_id, target_ami, target_region)
 
-#new_instance_id = create_instance(ec2_data, target_ami, target_region)
-#print(new_instance_id)
+new_instance_id = create_instance(ec2_data, target_ami, target_region)
+print(new_instance_id)
 
 #tag_target(instance_name, new_instance_id, ec2_data, ebs_data, target_region, target_env)
 print("TAGS DONE")

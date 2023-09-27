@@ -50,6 +50,6 @@ def get_ebs_details(ec2_data, target_region):
 					instance_name = tag['Value']
 
 	with open('ebs_details.json', 'w') as outfile:
-    	    json.dump(instance_details, outfile)
+    	    json.dump(vol_tags, outfile)
 
 	return(vol_tags)
